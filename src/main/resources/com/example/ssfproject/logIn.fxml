@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ssfproject.LogInController">
    <children>
-      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="15.0">
+      <VBox fx:id="mainPane" alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="15.0">
          <children>
             <Label alignment="TOP_CENTER" text="LOG IN">
                <font>

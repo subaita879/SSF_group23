@@ -1,10 +1,12 @@
 package com.example.ssfproject;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.FileWriter;
 
@@ -18,6 +20,8 @@ public class SignUpController
     private PasswordField confirmPasswordField;
     @javafx.fxml.FXML
     private ComboBox<String> desigComboBox;
+    @javafx.fxml.FXML
+    private VBox mainPane2;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -82,6 +86,31 @@ public class SignUpController
         if (success) {
             showAlert("Success", "Account created for " + designation);
             // Clear fields or switch scene
+        }
+
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("logIn.fxml"));
+            Node node = fxmlLoader.load();
+            mainPane2.getChildren().setAll(node);
+        }
+
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+    @javafx.fxml.FXML
+    public void switchtoLogInBOA(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("logIn.fxml"));
+            Node node = fxmlLoader.load();
+            mainPane2.getChildren().setAll(node);
+        }
+
+        catch(Exception e){
+            e.printStackTrace();
         }
     }
 }
