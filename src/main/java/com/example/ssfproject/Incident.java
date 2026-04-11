@@ -5,15 +5,17 @@ import java.time.LocalDate;
 
 public class Incident implements Serializable {
     private LocalDate date;
-    private int incidentId;
+    private String incidentId;
     private String incidentStatus;
     private String location;
+    private String incidentDescription;
 
-    public Incident(LocalDate date, int incidentId, String incidentStatus, String location) {
+    public Incident(LocalDate date, String incidentId, String incidentStatus, String location, String incidentDescription) {
         this.date = date;
         this.incidentId = incidentId;
         this.incidentStatus = incidentStatus;
         this.location = location;
+        this.incidentDescription = incidentDescription;
     }
 
     public LocalDate getDate() {
@@ -24,11 +26,11 @@ public class Incident implements Serializable {
         this.date = date;
     }
 
-    public int getIncidentId() {
+    public String getIncidentId() {
         return incidentId;
     }
 
-    public void setIncidentId(int incidentId) {
+    public void setIncidentId(String incidentId) {
         this.incidentId = incidentId;
     }
 
@@ -48,6 +50,14 @@ public class Incident implements Serializable {
         this.location = location;
     }
 
+    public String getIncidentDescription() {
+        return incidentDescription;
+    }
+
+    public void setIncidentDescription(String incidentDescription) {
+        this.incidentDescription = incidentDescription;
+    }
+
     @Override
     public String toString() {
         return "Incident{" +
@@ -55,6 +65,7 @@ public class Incident implements Serializable {
                 ", incidentId=" + incidentId +
                 ", incidentStatus='" + incidentStatus + '\'' +
                 ", location='" + location + '\'' +
+                ", incidentDescription='" + incidentDescription + '\'' +
                 '}';
     }
 }

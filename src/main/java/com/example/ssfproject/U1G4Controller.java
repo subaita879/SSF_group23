@@ -41,10 +41,11 @@ public class U1G4Controller
 
     @javafx.fxml.FXML
     public void MarkResolvedBOA(ActionEvent actionEvent) {
-        
+
     }
 
     @javafx.fxml.FXML
     public void SearchIncidentBOA(ActionEvent actionEvent) {
+
     }
 }

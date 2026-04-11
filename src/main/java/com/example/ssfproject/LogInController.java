@@ -29,7 +29,7 @@ public class LogInController {
     public void initialize() {
         desigComboBox.getItems().addAll(
                 "Unit Commander",
-                "Local Law enforcement",
+                "Local Law Enforcement",
                 "Operations Manager",
                 "Simulation Controller",
                 "Emergency medical response teams",
@@ -69,22 +69,24 @@ public class LogInController {
             showAlert("Error", "Please enter password");
             return;
         }
+        if (!isValidUser(id, pass, desig)) {
+            showAlert("Login Failed", "Invalid ID, Password, or Designation.");
+            return;
+
+        }
 
 
         String fxmlPath = "";
         switch (desigComboBox.getValue()) {
             case "Unit Commander":
-                fxmlPath = "UnitCommanderDashboard.fxml";
+                fxmlPath = "unitCommanderDashboard.fxml";
                 break;
             case "Local Law Enforcement":
-                fxmlPath = "LocalLawDashboard.fxml";
+                fxmlPath = "localLawDashboard.fxml";
                 break;
             case "Control Room Officer":
-                fxmlPath = "ControlRoomDashboard.fxml";
+                fxmlPath = "controlRoomDashboard.fxml";
                 break;
-            default:
-                System.out.println("Unknown Role Selected");
-                return;
         }
 
         try {
@@ -95,7 +97,27 @@ public class LogInController {
 
         catch(Exception e){
             e.printStackTrace();
+
         }
+    }
+    private boolean isValidUser(String id, String password, String designation) {
+        File file = new File("UserAccounts.bin");
+        if (!file.exists()) return false;
+
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+            ArrayList<User> userList = (ArrayList<User>) ois.readObject();
+
+            for (User u : userList) {
+                if (u.getId().equals(id) &&
+                        u.getPassword().equals(password) &&
+                        u.getDesignation().equals(designation)) {
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
 

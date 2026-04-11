@@ -47,28 +47,39 @@ public class SignUpController
         alert.showAndWait();
     }
 
-    public boolean saveAccountToBinAndTxtFile(String id, String desig, String pass) {
+    public boolean saveAccountToBinFile(String id, String desig, String pass) {
         File f;
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
             //
             f = new File("UserAccounts.bin");
-            FileWriter fw = new FileWriter("UserAccounts.txt", true);
-            fw.write(id + "," + desig + "," + pass + "\n");
             fos = new FileOutputStream(f);
             oos = new ObjectOutputStream(fos);
-            oos.writeObject(new Object());
-            fw.close();
+            oos.writeObject(new User(
+                    idTextField.getText(),
+                    desigComboBox.getValue(),
+                    passwordPField.getText()
+                    ));
             return true;
         }
         catch (Exception e){
-            e.printStackTrace();
             return false;
         }
+    }
 
+    public boolean saveAccountToFile(String id, String desig, String pass) {
 
+        try {
+            FileWriter fw = new FileWriter("UserAccounts.txt", true);
+            fw.write(id + "," + desig + "," + pass + "\n");
+            fw.close();
+            return true;
 
+        } catch (Exception e) {
+            return false;
+
+        }
     }
 
 
@@ -95,9 +106,10 @@ public class SignUpController
         }
 
 
-        boolean success = saveAccountToBinAndTxtFile(id, designation, password);
+        boolean success = saveAccountToBinFile(id, designation, password);
+        boolean success2 = saveAccountToFile(id, designation, password);
 
-        if (success) {
+        if (success && success2) {
             showAlert("Success", "Account created for " + designation);
         }
 

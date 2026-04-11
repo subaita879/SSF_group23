@@ -35,22 +35,57 @@ public class UnitCommanderDashboardController
 
     @javafx.fxml.FXML
     public void MissionEvaluationBOA(ActionEvent actionEvent) {
+        try {
+            loadFxmlParentToBorderPaneCenter("u1G6.fxml");
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @javafx.fxml.FXML
     public void RiskAndSafetyBOA(ActionEvent actionEvent) {
+        try {
+            loadFxmlParentToBorderPaneCenter("u1G3.fxml");
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @javafx.fxml.FXML
     public void CommandReportingBOA(ActionEvent actionEvent) {
+        try {
+            loadFxmlParentToBorderPaneCenter("u1G8.fxml");
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @javafx.fxml.FXML
     public void ResourceManagementBOA(ActionEvent actionEvent) {
+        try {
+            loadFxmlParentToBorderPaneCenter("u1G7.fxml");
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @javafx.fxml.FXML
     public void RequestManagementBOA(ActionEvent actionEvent) {
+        try {
+            loadFxmlParentToBorderPaneCenter("u1G5.fxml");
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @javafx.fxml.FXML
