@@ -1,15 +1,36 @@
 package com.example.ssfproject;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Vehicle {
+public class Vehicle implements Serializable {
     private String registrationId, model;
     private LocalDate dor;
+    private String vehicleType;
+    private String currentStatus;
 
-    public Vehicle(String registrationId, String model, LocalDate dor) {
+    public Vehicle(String registrationId, String model, LocalDate dor, String vehicleType, String currentStatus) {
         this.registrationId = registrationId;
         this.model = model;
         this.dor = dor;
+        this.vehicleType = vehicleType;
+        this.currentStatus = currentStatus;
+    }
+
+    public String getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(String vehicleType) {
+        this.vehicleType = vehicleType;
+    }
+
+    public String getCurrentStatus() {
+        return currentStatus;
+    }
+
+    public void setCurrentStatus(String currentStatus) {
+        this.currentStatus = currentStatus;
     }
 
     public String getRegistrationId() {
@@ -42,6 +63,8 @@ public class Vehicle {
                 "registrationId='" + registrationId + '\'' +
                 ", model='" + model + '\'' +
                 ", dor=" + dor +
+                ", vehicleType='" + vehicleType + '\'' +
+                ", currentStatus='" + currentStatus + '\'' +
                 '}';
     }
 }

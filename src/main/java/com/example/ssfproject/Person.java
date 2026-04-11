@@ -1,18 +1,32 @@
 package com.example.ssfproject;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Person {
+public class Person implements Serializable {
     private String name, gender, nId, age;
     private LocalDate dob;
+    private String designation;
 
-    public Person(String name, String gender, String nId, String age, LocalDate dob) {
-        this.name = name;
-        this.gender = gender;
-        this.nId = nId;
-        this.age = age;
-        this.dob = dob;
+    public boolean isActive() {
+        return isActive;
     }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
+    private boolean isActive;
+
+
 
     public String getName() {
         return name;
@@ -54,6 +68,16 @@ public class Person {
         this.dob = dob;
     }
 
+    public Person(String name, String gender, String nId, String age, LocalDate dob, String designation, boolean isActive) {
+        this.name = name;
+        this.gender = gender;
+        this.nId = nId;
+        this.age = age;
+        this.dob = dob;
+        this.designation = designation;
+        this.isActive = isActive;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
@@ -62,6 +86,8 @@ public class Person {
                 ", nId='" + nId + '\'' +
                 ", age='" + age + '\'' +
                 ", dob=" + dob +
+                ", designation='" + designation + '\'' +
+                ", isActive=" + isActive +
                 '}';
     }
 }

@@ -84,8 +84,11 @@ public class LogInController {
             case "Local Law Enforcement":
                 fxmlPath = "localLawDashboard.fxml";
                 break;
-            case "Control Room Officer":
-                fxmlPath = "controlRoomDashboard.fxml";
+            case "Simulation Controller":
+                fxmlPath = "SimulationController.fxml";
+                break;
+            case "Operations Manager":
+                fxmlPath = "OperationsManager.fxml";
                 break;
         }
 

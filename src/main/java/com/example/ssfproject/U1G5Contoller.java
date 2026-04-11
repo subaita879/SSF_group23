@@ -1,8 +1,9 @@
 package com.example.ssfproject;
 
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
+import javafx.event.ActionEvent;
+import javafx.scene.control.*;
+
+import java.time.LocalDate;
 
 public class U1G5Contoller
 {
@@ -14,6 +15,14 @@ public class U1G5Contoller
     private DatePicker desiredTimelineDatePicker;
     @javafx.fxml.FXML
     private ComboBox<String> priorityLevelComboBox;
+    @javafx.fxml.FXML
+    private TableColumn<Requests, String> statusTableColumn;
+    @javafx.fxml.FXML
+    private TableColumn<Requests,Integer> requestIdTableColumn;
+    @javafx.fxml.FXML
+    private TableView<Requests> requestsTableView;
+    @javafx.fxml.FXML
+    private TableColumn<Requests, LocalDate> timestampTableColumn;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -29,4 +38,17 @@ public class U1G5Contoller
                 "Emergency",
                 "Medium"
         );
-    }}
+    }
+
+    @javafx.fxml.FXML
+    public void ApproveRequestsBOA(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void SearchRequestBOA(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void RejectRequestsBOA(ActionEvent actionEvent) {
+    }
+}

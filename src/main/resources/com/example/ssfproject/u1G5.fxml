@@ -4,11 +4,13 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ssfproject.U1G5Contoller">
+<AnchorPane prefHeight="526.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ssfproject.U1G5Contoller">
    <children>
       <Label layoutX="14.0" layoutY="14.0" text="Request Management">
          <font>
@@ -23,6 +25,15 @@
       <ComboBox fx:id="priorityLevelComboBox" layoutX="150.0" layoutY="89.0" prefHeight="26.0" prefWidth="454.0" />
       <TextArea fx:id="detailedRequirementTextArea" layoutX="150.0" layoutY="129.0" prefHeight="27.0" prefWidth="454.0" />
       <DatePicker fx:id="desiredTimelineDatePicker" layoutX="150.0" layoutY="178.0" />
-      <Button layoutX="504.0" layoutY="178.0" mnemonicParsing="false" text="Submit Request" />
+      <Button layoutX="504.0" layoutY="178.0" mnemonicParsing="false" onAction="#SearchRequestBOA" text="Search Request" />
+      <TableView fx:id="requestsTableView" layoutX="50.0" layoutY="244.0" prefHeight="200.0" prefWidth="539.0">
+        <columns>
+          <TableColumn fx:id="requestIdTableColumn" prefWidth="155.9999656677246" text="Request ID" />
+          <TableColumn fx:id="statusTableColumn" prefWidth="193.6000518798828" text="Status" />
+            <TableColumn fx:id="timestampTableColumn" prefWidth="190.4000244140625" text="Timestamp" />
+        </columns>
+      </TableView>
+      <Button layoutX="88.0" layoutY="467.0" mnemonicParsing="false" onAction="#ApproveRequestsBOA" prefHeight="26.0" prefWidth="198.0" text="Approve Requests" />
+      <Button layoutX="345.0" layoutY="467.0" mnemonicParsing="false" onAction="#RejectRequestsBOA" prefHeight="26.0" prefWidth="208.0" text="Reject Requests" />
    </children>
 </AnchorPane>
