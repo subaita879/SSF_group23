@@ -1,9 +1,17 @@
 package com.example.ssfproject;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String id;
     private String designation;
     private String password;
+
+    public User(String id, String designation, String password) {
+        this.id = id;
+        this.designation = designation;
+        this.password = password;
+    }
 
     public String getId() {
         return id;
@@ -37,4 +45,5 @@ public class User {
                 ", password='" + password + '\'' +
                 '}';
     }
+
 }

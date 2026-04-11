@@ -1,12 +1,14 @@
 package com.example.ssfproject;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
-import java.io.FileWriter;
+import java.io.*;
 
 public class SignUpController
 {
@@ -18,6 +20,8 @@ public class SignUpController
     private PasswordField confirmPasswordField;
     @javafx.fxml.FXML
     private ComboBox<String> desigComboBox;
+    @javafx.fxml.FXML
+    private VBox mainPane2;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -43,16 +47,41 @@ public class SignUpController
         alert.showAndWait();
     }
 
+    public boolean saveAccountToBinFile(String id, String desig, String pass) {
+        File f;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+            //
+            f = new File("UserAccounts.bin");
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+            oos.writeObject(new User(
+                    idTextField.getText(),
+                    desigComboBox.getValue(),
+                    passwordPField.getText()
+                    ));
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
+
     public boolean saveAccountToFile(String id, String desig, String pass) {
+
         try {
             FileWriter fw = new FileWriter("UserAccounts.txt", true);
             fw.write(id + "," + desig + "," + pass + "\n");
             fw.close();
             return true;
+
         } catch (Exception e) {
             return false;
+
         }
     }
+
 
     @javafx.fxml.FXML
     public void CreateAccountBOA(ActionEvent actionEvent) {
@@ -77,11 +106,36 @@ public class SignUpController
         }
 
 
-        boolean success = saveAccountToFile(id, designation, password);
+        boolean success = saveAccountToBinFile(id, designation, password);
+        boolean success2 = saveAccountToFile(id, designation, password);
 
-        if (success) {
+        if (success && success2) {
             showAlert("Success", "Account created for " + designation);
-            // Clear fields or switch scene
+        }
+
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("logIn.fxml"));
+            Node node = fxmlLoader.load();
+            mainPane2.getChildren().setAll(node);
+        }
+
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+    @javafx.fxml.FXML
+    public void switchtoLogInBOA(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("logIn.fxml"));
+            Node node = fxmlLoader.load();
+            mainPane2.getChildren().setAll(node);
+        }
+
+        catch(Exception e){
+            e.printStackTrace();
         }
     }
 }
