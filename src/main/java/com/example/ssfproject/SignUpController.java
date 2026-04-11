@@ -8,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.FileWriter;
+import java.io.*;
 
 public class SignUpController
 {
@@ -47,16 +47,30 @@ public class SignUpController
         alert.showAndWait();
     }
 
-    public boolean saveAccountToFile(String id, String desig, String pass) {
+    public boolean saveAccountToBinAndTxtFile(String id, String desig, String pass) {
+        File f;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
         try {
+            //
+            f = new File("UserAccounts.bin");
             FileWriter fw = new FileWriter("UserAccounts.txt", true);
             fw.write(id + "," + desig + "," + pass + "\n");
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+            oos.writeObject(new Object());
             fw.close();
             return true;
-        } catch (Exception e) {
+        }
+        catch (Exception e){
+            e.printStackTrace();
             return false;
         }
+
+
+
     }
+
 
     @javafx.fxml.FXML
     public void CreateAccountBOA(ActionEvent actionEvent) {
@@ -81,11 +95,10 @@ public class SignUpController
         }
 
 
-        boolean success = saveAccountToFile(id, designation, password);
+        boolean success = saveAccountToBinAndTxtFile(id, designation, password);
 
         if (success) {
             showAlert("Success", "Account created for " + designation);
-            // Clear fields or switch scene
         }
 
 

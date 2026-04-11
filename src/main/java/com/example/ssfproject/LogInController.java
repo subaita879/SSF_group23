@@ -9,7 +9,11 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
 
 public class LogInController {
     @javafx.fxml.FXML
@@ -34,7 +38,6 @@ public class LogInController {
                 "Quick Response Team"
         );
     }
-
 
 
     private void showAlert(String title, String content) {

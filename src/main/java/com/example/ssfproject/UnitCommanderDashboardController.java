@@ -24,6 +24,13 @@ public class UnitCommanderDashboardController
 
     @javafx.fxml.FXML
     public void LiveUnitMonitoringBOA(ActionEvent actionEvent) {
+        try {
+            loadFxmlParentToBorderPaneCenter("u1G2.fxml");
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @javafx.fxml.FXML
@@ -49,9 +56,7 @@ public class UnitCommanderDashboardController
     @javafx.fxml.FXML
     public void MissionManagementBOA(ActionEvent actionEvent) {
         try {
-            Node node = FXMLLoader.load(getClass().getResource("u1G1.fxml"));
-            mainBorderpane.getChildren().setAll(node);
-            loadFxmlParentToBorderPaneCenter("CourseSpecificWithdrawalChartView.fxml");
+            loadFxmlParentToBorderPaneCenter("u1G1.fxml");
 
         }
         catch (Exception e) {
@@ -63,6 +68,14 @@ public class UnitCommanderDashboardController
 
     @javafx.fxml.FXML
     public void IncidentReviewBOA(ActionEvent actionEvent) {
+        try {
+            loadFxmlParentToBorderPaneCenter("u1G4.fxml");
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -71,6 +84,19 @@ public class UnitCommanderDashboardController
             FXMLLoader nextFxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlName));
             mainPane3.setCenter(nextFxmlLoader.load());
         }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @javafx.fxml.FXML
+    public void LogOutBOA(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("logIn.fxml"));
+            Node node = fxmlLoader.load();
+            mainPane3.getChildren().setAll(node);
+        }
+
         catch(Exception e){
             e.printStackTrace();
         }

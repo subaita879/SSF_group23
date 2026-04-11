@@ -1,14 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.ssfproject.LocalLawDashboardController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane fx:id="mainPane4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ssfproject.LocalLawDashboardController">
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="501.0" prefWidth="166.0" spacing="15.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <Label text="DASHBOARD">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#AssignedOperationsBOA" prefHeight="26.0" prefWidth="210.0" text="Assigned Operations">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#PerimeterControlBOA" prefHeight="22.0" prefWidth="188.0" text=" Perimeter Control ">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#JointOpBOA" prefHeight="26.0" prefWidth="218.0" text=" Joint Operations ">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#IdAndVehicleBOA" prefHeight="26.0" prefWidth="242.0" text="Identity and Vehicle Verification">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#IncidentReportingBOA" prefHeight="26.0" prefWidth="283.0" text="Incident Reporting">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#IntelligenceReportingBOA" prefHeight="26.0" prefWidth="237.0" text="Intelligence Reporting">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#CommunicationCoordinationBOA" prefHeight="26.0" prefWidth="172.0" text="Communication Coordination">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#ReportBOA" prefHeight="26.0" prefWidth="202.0" text="Report">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#LogOutBOA" text="LogOut" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+   </left>
+   <top>
+      <Label text="LOCAL LAW ENFORCEMENT" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

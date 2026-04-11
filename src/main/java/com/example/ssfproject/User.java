@@ -7,6 +7,12 @@ public class User implements Serializable {
     private String designation;
     private String password;
 
+    public User(String id, String designation, String password) {
+        this.id = id;
+        this.designation = designation;
+        this.password = password;
+    }
+
     public String getId() {
         return id;
     }

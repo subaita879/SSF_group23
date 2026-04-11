@@ -45,9 +45,9 @@ public class U1G1Controller {
         );
 
         unitComboBox.getItems().addAll(
-                "Unit A",
-                "Unit B",
-                "Unit C"
+                "Unit Alpha",
+                "Unit Bravo",
+                "Unit Charlie"
         );
         statusTableColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
         locationTableColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
