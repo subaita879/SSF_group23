@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ssfproject.QRTGoal3">
+    <children>
+        <TableView layoutX="61.0" layoutY="23.0" prefHeight="90.0" prefWidth="152.0">
+            <columns>
+                <TableColumn fx:id="colTeam" prefWidth="75.0" text="Team" />
+                <TableColumn fx:id="colAssignment" prefWidth="75.0" text="Assignment" />
+            </columns>
+        </TableView>
+        <Text layoutX="27.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rescue Location:" />
+        <TextField fx:id="txtRescueLocation" layoutX="161.0" layoutY="153.0" />
+        <Text layoutX="38.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Support Complete:" />
+        <Button fx:id="btnConfirmSupportComplete" layoutX="210.0" layoutY="229.0" mnemonicParsing="false" text="Button" />
+    </children>
+</AnchorPane>
+
